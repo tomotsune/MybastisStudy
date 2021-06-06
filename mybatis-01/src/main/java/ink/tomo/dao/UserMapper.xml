@@ -3,19 +3,33 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ink.tomo.dao.UserMapper">
-    <select id="getUserList" resultType="ink.tomo.pojo.User">
-        select * from mybatis.user
+    <select id="getUserList" resultType="user">
+        select *
+        from mybatis.user
     </select>
-    <select id="getUserById" parameterType="int" resultType="ink.tomo.pojo.User">
-        select * from mybatis.user where id = #{id}
+    <select id="getUserLike" resultType="user">
+        select *
+        from mybatis.user
+        where name like "%"#{value}"%"
     </select>
-    <insert id="addUser" parameterType="ink.tomo.pojo.User">
-        insert into mybatis.user(id,name,pwd) values (#{id},#{name},#{pwd})
+    <select id="getUserById" resultType="user">
+        select *
+        from mybatis.user
+        where id = #{id}
+    </select>
+    <insert id="addUser" parameterType="user">
+        insert into mybatis.user(id, name, pwd)
+        values (#{id}, #{name}, #{pwd})
     </insert>
-    <update id="updateUser" parameterType="ink.tomo.pojo.User">
-        update mybatis.user set name = #{name},pwd = #{pwd} where id = #{id};
+    <update id="updateUser" parameterType="user">
+        update mybatis.user
+        set name = #{name},
+            pwd  = #{pwd}
+        where id = #{id};
     </update>
-    <delete id="deleteUser" parameterType="int">
-        delete from mybatis.user where id = #{id}
+    <delete id="deleteUser">
+        delete
+        from mybatis.user
+        where id = #{id}
     </delete>
 </mapper>
