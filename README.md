@@ -16,7 +16,7 @@ CREATE TABLE `user`(
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user`(`id`,`name`,`pwd`) VALUES
-(1,'tomo','0000'),
+(1,'ink.tomo','0000'),
 (2,'Smith','1111'),
 (3,'Bill','2222')
 ~~~
@@ -114,8 +114,8 @@ Mapping.xml
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ink.tomo.dao.UserDao">
-    <select id="getUserList" resultType="ink.tomo.pojo.User">
+<mapper namespace="ink.ink.tomo.ink.tomo.dao.UserDao">
+    <select id="getUserList" resultType="ink.ink.tomo.pojo.User">
         select * from mybatis.user
     </select>
 </mapper>
@@ -125,7 +125,7 @@ Register mapper in mysql-config.xml
 
 ~~~xml
   <mappers>
-        <mapper resource="ink/tomo/dao/UserMapper.xml"/>
+        <mapper resource="ink/ink.tomo/ink.tomo.dao/UserMapper.xml"/>
   </mappers>
 ~~~
 
@@ -157,10 +157,10 @@ Adding additional resource paths
 ## FOUR. Testing
 
 ~~~java
-package ink.tomo.dao;
+package ink.ink.tomo.ink.tomo.dao;
 
-import ink.tomo.pojo.User;
-import ink.tomo.utils.MybatisUtils;
+import ink.ink.tomo.pojo.User;
+import ink.ink.tomo.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
@@ -186,9 +186,9 @@ public class UserDaoTest {
 ## ONE. UserMapper.java
 
 ~~~java
-package ink.tomo.dao;
+package ink.ink.tomo.ink.tomo.dao;
 
-import ink.tomo.pojo.User;
+import ink.ink.tomo.pojo.User;
 
 import java.util.List;
 
@@ -208,17 +208,17 @@ public interface UserMapper {
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ink.tomo.dao.UserMapper">
-    <select id="getUserList" resultType="ink.tomo.pojo.User">
+<mapper namespace="ink.ink.tomo.ink.tomo.dao.UserMapper">
+    <select id="getUserList" resultType="ink.ink.tomo.pojo.User">
         select * from mybatis.user
     </select>
-    <select id="getUserById" parameterType="int" resultType="ink.tomo.pojo.User">
+    <select id="getUserById" parameterType="int" resultType="ink.ink.tomo.pojo.User">
         select * from mybatis.user where id = #{id}
     </select>
-    <insert id="addUser" parameterType="ink.tomo.pojo.User">
+    <insert id="addUser" parameterType="ink.ink.tomo.pojo.User">
         insert into mybatis.user(id,name,pwd) values (#{id},#{name},#{pwd})
     </insert>
-    <update id="updateUser" parameterType="ink.tomo.pojo.User">
+    <update id="updateUser" parameterType="ink.ink.tomo.pojo.User">
         update mybatis.user set name = #{name},pwd = #{pwd} where id = #{id};
     </update>
     <delete id="deleteUser" parameterType="int">
@@ -230,10 +230,10 @@ public interface UserMapper {
 ## THREE. Testing
 
 ~~~java
-package ink.tomo.dao;
+package ink.ink.tomo.ink.tomo.dao;
 
-import ink.tomo.pojo.User;
-import ink.tomo.utils.MybatisUtils;
+import ink.ink.tomo.pojo.User;
+import ink.ink.tomo.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 

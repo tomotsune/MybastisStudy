@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--Core configuration file-->
+<mapper namespace="ink.tomo.dao.StudentMapper">
+    <select id="getStudent" resultMap="StudentTeacher">
+        select *
+        from student
+    </select>
+
+    <resultMap id="StudentTeacher" type="student">
+        <association property="teacher" column="tid" javaType="teacher" select="getTeacher"/>
+    </resultMap>
+
+    <select id="getTeacher" resultType="teacher">
+        select *
+        from teacher
+        where id = #{id}
+    </select>
+</mapper>

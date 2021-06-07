@@ -7,11 +7,12 @@
     <properties resource="db.properties"/>
     <settings>
         <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
         <setting name="logImpl" value="LOG4J"/>
     </settings>
     <typeAliases>
         <!--scan package-->
-        <package name="ink.ink.tomo.pojo"/>
+        <package name="ink.tomo.pojo"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -26,9 +27,7 @@
     </environments>
 
     <mappers>
-        <!--scan package-->
-        <!--<package name="ink.ink.tomo.ink.tomo.dao"/>-->
-        <!--<mapper resource="ink/ink.tomo/ink.tomo.dao/UserMapper.xml"/>-->
-        <mapper class="ink.ink.tomo.ink.tomo.dao.UserMapper"/>
+        <!--<mapper resource="ink/ink.tomo/ink.tomo.dao/*Mapper.xml"/>-->
+        <package name="ink.tomo.dao"/>
     </mappers>
 </configuration>

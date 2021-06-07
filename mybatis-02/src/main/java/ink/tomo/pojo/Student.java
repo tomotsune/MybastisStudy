@@ -7,14 +7,14 @@ import lombok.ToString;
 
 /**
  * @author
- * @create 2021-06-05 19:18
+ * @create 2021-06-07 16:05
  **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
-    private int id;
-    private String name;
-    private String pwd;
+public class Student {
+    int id;
+    String name;
+    Teacher teacher;
 }

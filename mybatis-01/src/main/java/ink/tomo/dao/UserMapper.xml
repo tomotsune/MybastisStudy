@@ -2,16 +2,21 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ink.tomo.dao.UserMapper">
-    <select id="getUserList" resultType="user">
+<mapper namespace="ink.ink.tomo.ink.tomo.dao.UserMapper">
+<!--    <select id="getUserList" resultType="user">
         select *
         from mybatis.user
-    </select>
+    </select>-->
     <select id="getUserLike" resultType="user">
         select *
         from mybatis.user
         where name like "%"#{value}"%"
     </select>
+    <select id="getUserByLimit" parameterType="map" resultType="user">
+        select *
+        from mybatis.user limit #{startIndex},#{pageSize}
+    </select>
+
     <select id="getUserById" resultType="user">
         select *
         from mybatis.user

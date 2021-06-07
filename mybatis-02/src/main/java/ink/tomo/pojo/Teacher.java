@@ -5,16 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 /**
  * @author
- * @create 2021-06-05 19:18
+ * @create 2021-06-07 16:04
  **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
+public class Teacher {
     private int id;
     private String name;
-    private String pwd;
+    private List<Student> students;
 }
