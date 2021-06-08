@@ -9,6 +9,10 @@
         values (#{id}, #{title}, #{author}, #{createTime}, #{views})
     </insert>
 
+    <!--    <sql id="if-title-author">
+
+        </sql>-->
+
     <select id="queryBlogIf" parameterType="map" resultType="blog">
         select * from mybatis.blog
         <where>
@@ -37,4 +41,27 @@
             </choose>
         </where>
     </select>
+
+    <update id="updateBlog" parameterType="map">
+        update mybatis.blog
+        <set>
+            <if test="title!=null">
+                title=#{title},
+            </if>
+            <if test="author!=null">
+                author=#{author}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="queryBlogForeach" parameterType="map" resultType="blog">
+        select * from mybatis.blog
+        <where>
+            <foreach collection="ids" item="id" open="(" close=")" separator="or">
+                id = #{id}
+            </foreach>
+        </where>
+    </select>
+
 </mapper>
