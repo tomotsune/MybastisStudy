@@ -12,6 +12,9 @@
         <module>mybatis-01</module>
         <module>mybatis-02</module>
         <module>mybatis-03</module>
+        <module>spring-01</module>
+        <module>spring-02</module>
+        <module>spring-mybatis-01</module>
     </modules>
 
     <dependencies>
@@ -46,6 +49,30 @@
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
             <scope>provided</scope>
+        </dependency>
+        <!--springMvc-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.7</version>
+        </dependency>
+        <!--AOP-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.6</version>
+        </dependency>
+        <!--spring-jdbc-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.7</version>
+        </dependency>
+        <!--spring-mybatis-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.6</version>
         </dependency>
     </dependencies>
     <build>

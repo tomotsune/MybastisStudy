@@ -115,7 +115,7 @@ Mapping.xml
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ink.ink.tomo.ink.tomo.dao.UserDao">
-    <select id="getUserList" resultType="ink.ink.tomo.pojo.User">
+    <select id="getUserList" resultType="ink.ink.tomo.pojo.UserTest">
         select * from mybatis.user
     </select>
 </mapper>
@@ -159,7 +159,7 @@ Adding additional resource paths
 ~~~java
 package ink.ink.tomo.ink.tomo.dao;
 
-import ink.ink.tomo.pojo.User;
+import ink.ink.tomo.pojo.UserTest;
 import ink.ink.tomo.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -188,7 +188,7 @@ public class UserDaoTest {
 ~~~java
 package ink.ink.tomo.ink.tomo.dao;
 
-import ink.ink.tomo.pojo.User;
+import ink.ink.tomo.pojo.UserTest;
 
 import java.util.List;
 
@@ -209,16 +209,16 @@ public interface UserMapper {
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ink.ink.tomo.ink.tomo.dao.UserMapper">
-    <select id="getUserList" resultType="ink.ink.tomo.pojo.User">
+    <select id="getUserList" resultType="ink.ink.tomo.pojo.UserTest">
         select * from mybatis.user
     </select>
-    <select id="getUserById" parameterType="int" resultType="ink.ink.tomo.pojo.User">
+    <select id="getUserById" parameterType="int" resultType="ink.ink.tomo.pojo.UserTest">
         select * from mybatis.user where id = #{id}
     </select>
-    <insert id="addUser" parameterType="ink.ink.tomo.pojo.User">
+    <insert id="addUser" parameterType="ink.ink.tomo.pojo.UserTest">
         insert into mybatis.user(id,name,pwd) values (#{id},#{name},#{pwd})
     </insert>
-    <update id="updateUser" parameterType="ink.ink.tomo.pojo.User">
+    <update id="updateUser" parameterType="ink.ink.tomo.pojo.UserTest">
         update mybatis.user set name = #{name},pwd = #{pwd} where id = #{id};
     </update>
     <delete id="deleteUser" parameterType="int">
@@ -232,7 +232,7 @@ public interface UserMapper {
 ~~~java
 package ink.ink.tomo.ink.tomo.dao;
 
-import ink.ink.tomo.pojo.User;
+import ink.ink.tomo.pojo.UserTest;
 import ink.ink.tomo.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
